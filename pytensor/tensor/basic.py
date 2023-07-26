@@ -3414,7 +3414,8 @@ class ExtractDiag(Op):
             ]
         else:
             warnings.warn("Gradient of ExtractDiag only works for matrices.")
-            return [grad_not_implemented(self, 0, x)]
+            #return [grad_not_implemented(self, 0, x)]
+            return [zeros_like(x)]
 
     def infer_shape(self, fgraph, node, shapes):
         from pytensor.tensor.math import clip, minimum
